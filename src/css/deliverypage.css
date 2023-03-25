@@ -1,0 +1,139 @@
+.filters{
+    display:flex;
+    gap:20px;
+    
+}
+
+.filters button{
+    padding:5px;
+    border-radius: 10px;
+    color:#3d3b3b99;
+    border: 1px solid #9999;
+    background-color: white;
+    cursor:pointer;
+}
+
+.inspiration {
+    width:100%;
+    margin-top:30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.round-container {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.round-container img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+}
+
+.subsection-title{
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.delivery-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.heading {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.page-Restraunts-card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* gap: 50px; */
+}
+
+.Restraunt-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(100%/3 - 20px);
+    position: relative;
+    cursor: pointer;
+    align-items: space-between;
+    gap: 5px;
+    margin-top: 30px;
+}
+
+.Restraunt-card-img {
+    height: 250px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.Restraunt-card-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Restraunt-card-title {
+    font-size: 18px;
+    font-weight: 500;
+    width: 80%;
+}
+
+.Restraunt-card-rating {
+    font-size: 12px;
+    font-weight: 600;
+    background-color: green;
+    color: white;
+    border-radius: 6px;
+    height: max-content;
+    padding: 4px;
+    margin-top: 5px;
+}
+
+.Restraunt-card-categories,
+.Restraunt-card-price {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(99, 99, 99);
+}
+
+.Restraunt-card-categories {
+    width: 175px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Restraunt-card-location {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(141, 141, 141);
+}
+
+.Restraunt-card-offer {
+    position: absolute;
+    top: 210px;
+    left: 10px;
+    color: white;
+    background-color: rgb(0, 139, 253);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.Restraunt-card-time {
+    position: absolute;
+    top: 210px;
+    left: 260px;
+    color: black;
+    background-color: rgba(231, 231, 231, 0.822);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}

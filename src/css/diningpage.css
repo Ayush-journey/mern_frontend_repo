@@ -1,0 +1,61 @@
+.collections-section-cards-container {
+    display: flex;
+    gap: 16px;
+
+    align-items: center;
+}
+
+.collections-section-card {
+    height: 320px;
+    width: 260px;
+    position: relative;
+    color: white;
+}
+
+.collections-section-card-img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(60%);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.collections-section-card-title,
+.collections-section-card-count {
+    width: 230px;
+    position: absolute;
+}
+
+.collections-section-card-title {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    top: 266px;
+    left: 15px;
+    right: 15px;
+}
+
+
+.collections-section-card-count {
+    top: 294px;
+    left: 15px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.filters{
+    display:flex;
+    gap:20px;
+    
+}
+
+.filters button{
+    padding:5px;
+    border-radius: 10px;
+    color:#3d3b3b99;
+    border: 1px solid #9999;
+    background-color: white;
+    cursor:pointer;
+}

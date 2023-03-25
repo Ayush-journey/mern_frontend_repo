@@ -1,0 +1,32 @@
+.subheader-container{
+    display:flex;
+    gap:50px;
+}
+
+.subheader-items {
+    display:flex;
+    align-items:center;
+    gap:20px;
+    
+}
+
+.image-container{
+    height:100px;
+    width:100px;
+    padding:15px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.active {
+    background-color: antiquewhite;
+}
+
+.subheader-items img{
+    height:60px;
+    width:60px;    
+}
+
+.subheader-items p{
+    font-size:22px;
+}
