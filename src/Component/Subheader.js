@@ -1,5 +1,6 @@
-import React from 'react'
-import '../css/subheader.css'
+import React from 'react';
+import '../css/subheader.css';
+import { NavLink, Link } from 'react-router-dom';
 export default function Subheader() {
     const deliveryInactive = 'https://b.zmtcdn.com/data/o2_assets/246bbd71fbba420d5996452be3024d351616150055.png';
     const diningInactive = 'https://b.zmtcdn.com/data/o2_assets/78d25215ff4c1299578ed36eefd5f39d1616149985.png';
@@ -9,19 +10,32 @@ export default function Subheader() {
     const nightlifeActive = 'https://b.zmtcdn.com/data/o2_assets/855687dc64a5e06d737dae45b7f6a13b1616149818.png';
     return (
         <div className='subheader-container'>
-            <div className='subheader-items'>
+            <NavLink style={(isActive) => {
+                return isActive ? { color: "red", textDecoration: 'none' } : { color: 'black', textDecoration: 'none' }
+            }}
+                to={'/Delivery'} >
+                <div className='subheader-items'>
                 <div className='image-container'>
                     <img src={deliveryActive} />
                 </div>
                 <p>Delivery</p>
             </div>
-            <div className='subheader-items'>
+            </NavLink>
+            <NavLink to={'/Dining'} style={(isActive) => {
+                return isActive ? { color: "red", textDecoration: 'none' } : { color: 'black', textDecoration: 'none' }
+            }}>
+                <div className='subheader-items'>
                 <div className='image-container'>
                     <img src={diningInactive} />
                 </div>
 
                 <p>Dining Out</p>
             </div>
+            </NavLink>
+            <NavLink to={'/Nightlife'} style={(isActive) => {
+                return isActive ? { color: "red", textDecoration: 'none' } : { color: 'black', textDecoration: 'none' }
+            }}>
+
             <div className='subheader-items'>
                 <div className='image-container'>
                     <img src={nightlifeInactive} />
@@ -29,6 +43,7 @@ export default function Subheader() {
 
                 <p>Nightlife</p>
             </div>
+            </NavLink>
         </div>
     )
 }
