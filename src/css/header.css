@@ -42,7 +42,7 @@ input {
 
 .search-container {
     height: 100%;
-    outline: 1px solid rgba(196, 196, 196, 0.384);
+    /* outline: 1px solid rgba(196, 196, 196, 0.384); */
     outline-offset: 4px;
     display: flex;
     justify-content: flex-start;

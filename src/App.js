@@ -4,11 +4,13 @@ import Subheader from './Component/Subheader';
 import Deliverypage from './Component/Deliverypage';
 import Diningpage from './Component/Diningpage';
 import Nighlifepage from './Component/Nightlifepage';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className='App'>
-      <Header />
+
+      {/* <Header />
       <Router>
         <Subheader />
 
@@ -19,7 +21,7 @@ function App() {
           <Route path='/Nightlife' element={<Nighlifepage />} />
         </Routes>
 
-      </Router>
+      </Router> */}
     </div>
 
   );
