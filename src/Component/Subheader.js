@@ -10,39 +10,55 @@ export default function Subheader() {
     const nightlifeActive = 'https://b.zmtcdn.com/data/o2_assets/855687dc64a5e06d737dae45b7f6a13b1616149818.png';
     return (
         <div className='subheader-container'>
+            
             <NavLink style={(isActive) => {
                 return isActive ? { color: "red", textDecoration: 'none' } : { color: 'black', textDecoration: 'none' }
             }}
                 to={'/Delivery'} >
-                <div className='subheader-items'>
-                <div className='image-container'>
-                    <img src={deliveryActive} />
-                </div>
-                <p>Delivery</p>
-            </div>
+
+                {
+                    ({ isActive }) => {
+                        return isActive ?
+                            <div className='subheader-items'>
+                                <div className='image-container'>
+                                    <img src={deliveryActive} alt='Delivery' />
+                                </div>
+                                <p>Delivery</p>
+                            </div>
+                            :
+                            <div className='subheader-items'>
+                                <div className='image-container'>
+                                    <img src={deliveryInactive} alt='Delivery' />
+                                </div>
+                                <p>Delivery</p>
+                            </div>
+                    }
+                }
+
             </NavLink>
+
             <NavLink to={'/Dining'} style={(isActive) => {
                 return isActive ? { color: "red", textDecoration: 'none' } : { color: 'black', textDecoration: 'none' }
             }}>
                 <div className='subheader-items'>
-                <div className='image-container'>
-                    <img src={diningInactive} />
-                </div>
+                    <div className='image-container'>
+                        <img src={diningInactive} />
+                    </div>
 
-                <p>Dining Out</p>
-            </div>
+                    <p>Dining Out</p>
+                </div>
             </NavLink>
             <NavLink to={'/Nightlife'} style={(isActive) => {
                 return isActive ? { color: "red", textDecoration: 'none' } : { color: 'black', textDecoration: 'none' }
             }}>
 
-            <div className='subheader-items'>
-                <div className='image-container'>
-                    <img src={nightlifeInactive} />
-                </div>
+                <div className='subheader-items'>
+                    <div className='image-container'>
+                        <img src={nightlifeInactive} />
+                    </div>
 
-                <p>Nightlife</p>
-            </div>
+                    <p>Nightlife</p>
+                </div>
             </NavLink>
         </div>
     )
