@@ -4,9 +4,11 @@
 }
 
 .subheader-items {
+    height: 110px;
+    width: 200px;
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:10px;
 }
 
 .subheader-items a {
@@ -14,20 +16,20 @@
 }
 
 .image-container{
-    height:100px;
-    width:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:70px;
+    width:70px;
     padding:15px;
     border-radius: 50%;
     text-align: center;
 }
 
-/* .active {
-    background-color: antiquewhite;
-} */
-
 .subheader-items img{
-    height:60px;
-    width:60px;    
+    height:30px;
+    width:30px;
+    
 }
 
 .subheader-items p{
@@ -36,4 +38,11 @@
 
 .isActive {
     text-decoration: none;
+}
+
+.deliveryActive{
+    background:#fceec0; 
+}
+.diningActive{
+    background:#e5f3f3; 
 }

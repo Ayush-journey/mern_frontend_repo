@@ -5,6 +5,8 @@ import Deliverypage from './Component/Deliverypage';
 import Diningpage from './Component/Diningpage';
 import Nighlifepage from './Component/Nightlifepage';
 
+import Landingpage from './Component/Landingpage';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    // <Landingpage />
 
   );
 }
