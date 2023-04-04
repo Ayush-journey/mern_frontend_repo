@@ -1,10 +1,19 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import '../css/deliverypage.css';
 import inspirationdata from '../Database/Inspiration';
 import topbranddata from '../Database/Topbrand';
 import Restraunts from '../Database/DeliveryRestraunts';
 import RestrauntsCard from './RestrauntsCard'
 export default function Deliverypage() {
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`http://localhost:5000/getinspiration`);
+            const newData = await response.json();
+
+        };
+        fetchData();
+    }, []);
+
     return (
         <>
             <div className='delivery-container'>
@@ -21,7 +30,7 @@ export default function Deliverypage() {
                         inspirationdata.map((el) => {
                             return (
                                 <div className='round-container'>
-                                    <img src={el.image} />
+                                    <img src={el.image} alt={'images'} />
                                     <p>{el.dish}</p>
                                 </div>
                             )
