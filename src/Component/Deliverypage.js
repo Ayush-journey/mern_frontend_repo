@@ -1,18 +1,24 @@
-import { React, useEffect } from 'react';
+import { React, useState } from 'react';
 import '../css/deliverypage.css';
-import inspirationdata from '../Database/Inspiration';
-import topbranddata from '../Database/Topbrand';
+// import inspirationdata from '../Database/Inspiration';
+// import topbranddata from '../Database/Topbrand';
 import Restraunts from '../Database/DeliveryRestraunts';
 import RestrauntsCard from './RestrauntsCard'
 export default function Deliverypage() {
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`http://localhost:5000/getinspiration`);
-            const newData = await response.json();
+    const [inspirationdata, setinspirationdata] = useState();
+    const [topbranddata, settopbranddata] = useState();
 
-        };
-        fetchData();
-    }, []);
+    (async function () {
+        const response = await fetch(`http://localhost:5000/getinspiration`);
+        var result = await response.json();
+        setinspirationdata(result);
+    })();
+
+    (async function () {
+        const response = await fetch(`http://localhost:5000/gettopbrand`);
+        var result = await response.json();
+        settopbranddata(result);
+    })();
 
     return (
         <>
@@ -27,7 +33,7 @@ export default function Deliverypage() {
                 <p className='subsection-title'>Inspiration for your first order</p>
                 <div className='inspiration'>
                     {
-                        inspirationdata.map((el) => {
+                        inspirationdata ? inspirationdata.map((el) => {
                             return (
                                 <div className='round-container'>
                                     <img src={el.image} alt={'images'} />
@@ -35,22 +41,22 @@ export default function Deliverypage() {
                                 </div>
                             )
                         }
-                        )
+                        ) : ''
                     }
                 </div>
                 <p className='subsection-title'>Top brands for you</p>
                 <div className='inspiration'>
                     {
-                        topbranddata.map((el) => {
+                        topbranddata ? topbranddata.map((el) => {
                             return (
                                 <div className='round-container'>
-                                    <img src={el.image} />
+                                    <img src={el.image} alt="" />
                                     <p>{el.restaurant}</p>
                                     <p>{el.time}</p>
                                 </div>
                             )
                         }
-                        )
+                        ) : ""
                     }
                 </div>
                 <p className='page-title heading'>Delivery Restaurants in Arya Nagar, Anand Vihar, Delhi</p>
