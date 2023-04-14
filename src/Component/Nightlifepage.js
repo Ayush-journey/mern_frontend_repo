@@ -1,10 +1,14 @@
 import React from 'react';
 import '../css/diningpage.css';
-import NightLifeCollections from '../Database/NightLifeCollections';
-import Restraunts from '../Database/NightlifeRestraunts'
+import UseFetch from './usefetch';
+import { nightlifecollection, nightliferestaurant } from '../Database/api'
+// import NightLifeCollections from '../Database/NightLifeCollections';
+// import Restraunts from '../Database/NightlifeRestraunts'
 import Collection from './Collections';
 import RestrauntsCard from './RestrauntsCard'
 export default function Diningpage() {
+    const { data: NightLifeCollections, loading: NightLifeCollectionsloading, error: NightLifeCollectionserror } = UseFetch(nightlifecollection);
+    const { data: Restraunts, loading: NightLiferestrauntloading, error: NightLiferestraunterror } = UseFetch(nightliferestaurant);
     return (
         <>
             <div className='collections-section'>
@@ -13,8 +17,9 @@ export default function Diningpage() {
             </div>
             <div className='collections-section-cards-container'>
                 {
-                    NightLifeCollections.map((collection) =>
+                    NightLifeCollectionsloading ? <h1>Loading...</h1> : (NightLifeCollectionserror ? <p>Failed to load API</p> : NightLifeCollections?.map((collection) =>
                         <Collection title={collection.title} img={collection.img} count={collection.count} />
+                    )
                     )
                 }
 
@@ -29,8 +34,9 @@ export default function Diningpage() {
             <div className='page-Restraunts-section'>
                 <div className='page-Restraunts-card-container'>
                     {
-                        Restraunts.map((restraunt) =>
-                            <RestrauntsCard title={restraunt.title} img={restraunt.img} rating={restraunt.rating} categories={restraunt.categories} price={restraunt.price} location={restraunt.location} time={restraunt.time} />
+                        NightLiferestrauntloading ? <h1>Loading...</h1> : (NightLiferestraunterror ? <p>Failed to load API</p> : Restraunts?.map((restraunt) =>
+                            <RestrauntsCard {...restraunt} />
+                        )
                         )
                     }
                 </div>

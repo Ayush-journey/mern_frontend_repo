@@ -1,10 +1,14 @@
 import React from 'react';
+import UseFetch from './usefetch';
+import { dineoutcollection, dineoutrestaurant } from '../Database/api';
 import '../css/diningpage.css';
-import DineoutCollections from '../Database/DineoutCollections';
-import Restraunts from '../Database/DineoutRestraunts'
+// import DineoutCollections from '../Database/DineoutCollections';
+// import Restraunts from '../Database/DineoutRestraunts'
 import Collection from './Collections';
 import RestrauntsCard from './RestrauntsCard'
 export default function Diningpage() {
+    const { data: DineoutCollections, loading: DineoutCollectionsloading, error: DineoutCollectionserror } = UseFetch(dineoutcollection);
+    const { data: Restraunts, loading: Restrauntsloading, error: Restrauntserror } = UseFetch(dineoutrestaurant);
     return (
         <>
             <div className='collections-section'>
@@ -13,9 +17,10 @@ export default function Diningpage() {
             </div>
             <div className='collections-section-cards-container'>
                 {
-                    DineoutCollections.map((collection) =>
+                    DineoutCollectionsloading ? <h1>Loading...</h1> : (DineoutCollectionserror ? <p>Failed to load API</p> : DineoutCollections?.map((collection) =>
                         <Collection title={collection.title} img={collection.img} count={collection.count} />
-                    )}
+                    ))
+                }
 
             </div>
             <div className='filters'>
@@ -29,8 +34,9 @@ export default function Diningpage() {
             <div className='page-Restraunts-section'>
                 <div className='page-Restraunts-card-container'>
                     {
-                        Restraunts.map((restraunt) =>
-                            <RestrauntsCard title={restraunt.title} img={restraunt.img} rating={restraunt.rating} categories={restraunt.categories} price={restraunt.price} location={restraunt.location} time={restraunt.time} />
+                        Restrauntsloading ? <h1>Loading...</h1> : (Restrauntserror ? <p>Failed to load API</p> : Restraunts?.map((restraunt) =>
+                            <RestrauntsCard {...restraunt} />
+                        )
                         )
                     }
                 </div>
