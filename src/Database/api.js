@@ -1,4 +1,6 @@
 module.exports = {
+    login: 'http://localhost:5000/login',
+    signup: 'http://localhost:5000/register',
     inspiration: 'http://localhost:5000/getinspiration',
     topbrand: 'http://localhost:5000/gettopbrand',
     restraunt: 'http://localhost:5000/getdeliveryrestaurant',
